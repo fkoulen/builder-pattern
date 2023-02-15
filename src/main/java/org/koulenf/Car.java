@@ -30,6 +30,20 @@ public class Car {
     public void turnOnAC() {
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", numberOfDoors=" + numberOfDoors +
+                ", engine='" + engine + '\'' +
+                '}';
+    }
+
     public static class Builder {
         private int id;
         private String brand;

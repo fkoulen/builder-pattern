@@ -8,13 +8,13 @@ package org.koulenf;
 public class Main {
     public static void main(String[] args) {
         int id = 1;
-        String brand = "Suzuki";
-        String model = "Swift";
-        String color = "Red";
-        double weight = 988.80;
-        double height = 2.3;
-        int numberOfDoors = 5;
-        String engine = "1298 cc";
+        String brand = "Bugatti";
+        String model = "Chiron";
+        String color = "Blue";
+        double weight = 1996.0;
+        double height = 121.20;
+        int numberOfDoors = 2;
+        String engine = "8 l W16";
 
 
         // Solution: set through builder
@@ -36,7 +36,15 @@ public class Main {
                 .engine(engine)
                 .build();
 
+        // Solution: use to easily create objects with same building steps
+        Director director = new Director();
+        Car.Builder builder = new Car.Builder();
+        director.makeSuzukiSwift(builder);
+        Car suzukiSwift1 = builder.build();
+        Car suzukiSwift2 = builder.color("red").build();
 
         System.out.println(carOptional);
+        System.out.println(suzukiSwift1);
+        System.out.println(suzukiSwift2);
     }
 }
