@@ -10,51 +10,79 @@ public class Car {
     private int numberOfDoors;
     private String engine;
 
-    public Car(int id, String brand, String model, String color, double weight, double height, int numberOfDoors, String engine) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.weight = weight;
-        this.height = height;
-        this.numberOfDoors = numberOfDoors;
-        this.engine = engine;
+    public Car(Builder builder) {
+        this.id = builder.id;
+        this.brand = builder.brand;
+        this.model = builder.model;
+        this.color = builder.color;
+        this.weight = builder.weight;
+        this.height = builder.height;
+        this.numberOfDoors = builder.numberOfDoors;
+        this.engine = builder.engine;
     }
 
-
-    public void drive() {}
-    public void brake() {}
-    public void turnOnAC() {}
-
-    // Problem: Too Many Constructors
-    public Car(int id, String brand, String model) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
+    public void drive() {
     }
 
-    public Car(int id, String brand, String model, String color) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
+    public void brake() {
     }
 
-    public Car(int id, String brand, String model, String color, String engine) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.engine = engine;
+    public void turnOnAC() {
     }
 
-    public Car(int id, String brand, String model, String color, double weight, double height) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.weight = weight;
-        this.height = height;
+    public static class Builder {
+        private int id;
+        private String brand;
+        private String model;
+        private String color;
+        private double weight;
+        private double height;
+        private int numberOfDoors;
+        private String engine;
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder brand(String brand) {
+            this.brand = brand;
+            return this;
+        }
+
+        public Builder model(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public Builder color(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public Builder weight(double weight) {
+            this.weight = weight;
+            return this;
+        }
+
+        public Builder height(double height) {
+            this.height = height;
+            return this;
+        }
+
+        public Builder numberOfDoors(int numberOfDoors) {
+            this.numberOfDoors = numberOfDoors;
+            return this;
+        }
+
+        public Builder engine(String engine) {
+            this.engine = engine;
+            return this;
+        }
+
+        public Car build() {
+            return new Car(this);
+        }
     }
 
 }

@@ -2,8 +2,8 @@ package org.koulenf;
 
 /**
  * The builder pattern:
- *  - creational design pattern: about the way of creating objects
- *  - Separates (complex) construction code from logic of class
+ * - creational design pattern: about the way of creating objects
+ * - Separates (complex) construction code from logic of class
  */
 public class Main {
     public static void main(String[] args) {
@@ -17,25 +17,26 @@ public class Main {
         String engine = "1298 cc";
 
 
-        // Problem: Big constructor
-        Car carBigConstructor = new Car(id, brand, model, color, weight, height, numberOfDoors, engine);
+        // Solution: set through builder
+        Car carBigConstructor = new Car.Builder().id(id)
+                .brand(brand)
+                .model(model)
+                .color(color)
+                .weight(weight)
+                .height(height)
+                .numberOfDoors(numberOfDoors)
+                .engine(engine)
+                .build();
 
-        // Problem: Value of null
-        Car carOptional = new Car(id, brand, model, null, weight, height, numberOfDoors, null);
+        // Solution: only fill in values you want
+        Car carOptional = new Car.Builder().id(id)
+                .brand(brand)
+                .model(model)
+                .color(color)
+                .engine(engine)
+                .build();
 
 
-
-
-
-        Director director = new Director();
-        CarBuilder builder = new CarBuilder();
-        CarManualBuilder manualBuilder = new CarManualBuilder();
-
-        director.makeSuzukiSwift(builder);
-        Car car = builder.getResult();
-        Manual manual = manualBuilder.getResult();
-
-        System.out.println(car);
-        System.out.println(manual);
+        System.out.println(carOptional);
     }
 }

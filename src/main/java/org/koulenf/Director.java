@@ -1,6 +1,6 @@
 package org.koulenf;
 
 public class Director {
-    public void makeSuzukiSwift(CarBuilder builder) {
+    public void makeSuzukiSwift(Car.Builder builder) {
     }
 }
